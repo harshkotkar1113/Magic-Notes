@@ -21,7 +21,7 @@ addBtn.addEventListener("click", function (e) {
 
 });
 
-
+// shownotes 
 
 function showNotes() {
     let notes = localStorage.getItem('notes');
@@ -38,7 +38,7 @@ function showNotes() {
              <div class="card-body">
                  <h5 class="card-title">Note ${index + 1} </h5>
                  <p class="card-text">${element}</p>
-                 <button id= "${index}" onclick= "dltNt(this.id)" class="btn btn-primary">Delet note</button>
+                 <button id= "${index}" onclick= "deleteNote(this.id)" class="btn btn-primary">Delet note</button>
              </div>
          </div>
         `
@@ -48,10 +48,11 @@ function showNotes() {
         } else {
             notesV.innerHTML = "Nothing here, add something"
         }
+
     });
 }
-// function to delet note
-function deletNote(index) {
+// function to delete note
+function deleteNote(index) {
     let notes = localStorage.getItem("notes");
     if (notes == null) {
         notesObj = [];
