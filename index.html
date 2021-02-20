@@ -21,7 +21,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
 
             <a class="navbar-brand" href="#">Noteapp</a>
@@ -48,31 +48,37 @@
         </div>
     </nav>
 
-    <div class="container-fluid  my-3 my-3 text-center ">
+    <div class="container-fluid  my-3 my-3  ">
         <h1>Welcome to Note making app !</h1>
         <div class="card">
             <!-- <img src="..." class="card-img-top" alt="..."> -->
             <div class="m-auto ">
-                <h5 class="card-title">Add a note</h5>
+                <h5 class="card-title mt-2">Add a note</h5>
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label"></label>
                     <textarea class="form-control" id="addTxt" rows="3"></textarea>
                 </div>
-                <a class="btn btn-primary" id="addBtn">Add note</a>
+                <a class="btn btn-primary mb-4" id="addBtn">Add note</a>
             </div>
         </div>
     </div>
-    <h1>Your notes</h1>
-    <hr>
+    <h1 class="text-center">Your notes</h1>
+    
     <div id="notes" class="row container-fluid">
 
     </div>
-
+    <hr>
     <!-- footer -->
-    <footer class="footer mt-auto py-3 bg-light">
-        <div class="container">
-            Sample Note making app by - Haresh kotkar
-    </footer>
+    <div id="footer fixed-bottom bg-light ms-auto">
+        <ul class="bd-footer-links d-flex ">
+            <li class="item "><a class="footerlink text-dark" href="https://github.com/harshkotkar5557?tab=repositories">GitHub</a></li>
+            <li class="item"><a class=" footerlink text-dark"  href="https://twitter.com/KotkarHaresh">Twitter</a></li>
+            <li class="item"><a class="footerlink text-dark " href="https://www.linkedin.com/in/harsh-kotkar-389a08139//">Linkdin</a></li>
+            <li class="item"><a class="footerlink text-dark" href="https://www.linkedin.com/in/harsh-kotkar-389a08139//">Hareshkotkar</a></li>
+    
+          </ul>
+    </div>
+    
 
     <!-- bootstrap javascript  -->
 
