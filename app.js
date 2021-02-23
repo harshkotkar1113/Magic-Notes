@@ -81,4 +81,5 @@ search.addEventListener("input", function(){
         }
         // console.log(cardTxt);
     })
-})
+}) 
+
