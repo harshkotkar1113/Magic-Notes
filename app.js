@@ -5,16 +5,23 @@ showNotes();
 
 addBtn.addEventListener("click", function (e) {
     let addTxt = document.getElementById("addTxt")
+    let addTitle = document.getElementById("addTitle")
     let notes = localStorage.getItem("notes");
     if (notes == null) {
-        notesObj = []; 
+        notesObj = [];
     } else {
-        notesObj = JSON.parse(notes);
+        notesObj = JSON.parse(notes);   //here we converted array-object form array-string
     }
 
-    notesObj.push(addTxt.value);
+    let myObj = {
+        title: addTitle.value,
+        text: addTxt.value
+    }
+
+    notesObj.push(myObj);
     localStorage.setItem("notes", JSON.stringify(notesObj));
     addTxt.value = "";
+    addTitle.value = "";
     console.log(notesObj);
 
     showNotes();
@@ -32,13 +39,13 @@ function showNotes() {
     }
 
     let html = "";
-    notesObj.forEach(function (element , index) {
+    notesObj.forEach(function (element, index) {
         html += `
         <div class="noteCard" style="width: 18rem;">
              <div class="card-body">
-                 <h5 class="card-title">Note ${index + 1} </h5>
-                 <p class="card-text">${element}</p>
-                 <button id= "${index}" onclick= "deleteNote(this.id)" class="btn btn-primary">Delet note</button>
+                 <h5 class="card-title"> ${element.title} </h5>
+                 <p class="card-text">${element.text}</p>
+                 <button id= "${index}" onclick= "deleteNote(this.id)" class="btn btn-primary">Delete note</button>
              </div>
          </div>
         `
@@ -66,20 +73,36 @@ function deleteNote(index) {
 
 // search notes from saved notes
 let search = document.getElementById('searchTxt');
-search.addEventListener("input", function(){
+search.addEventListener("input", function () {
 
     let inputVal = search.value.toLowerCase();
     // console.log('Input event fired!', inputVal);
     let noteCards = document.getElementsByClassName('noteCard');
-    Array.from(noteCards).forEach(function(element){
-        let cardTxt = element.getElementsByTagName("p")[0].innerText;
-        if(cardTxt.includes(inputVal)){
+
+    Array.from(noteCards).forEach(function (element) {
+        let cardTxt = (element.getElementsByTagName("p")[0].innerText) +
+            (element.getElementsByTagName("h5")[0].innerText);
+        if (cardTxt.includes(inputVal)) {
             element.style.display = "block";
-        }
-        else{
+        } else {
             element.style.display = "none";
         }
         // console.log(cardTxt);
     })
-}) 
+})
 
+const protoOne = {
+
+    slogan: function () {
+        return 'this is good comapny'
+    },
+    changeName: function (newName) {
+        this.name = newName
+    }
+}
+
+let harry = Object.create(protoOne);
+harry.name = "vaibhav";
+harry.role = "coder"
+harry.changeName("haresh")
+console.log(harry);
